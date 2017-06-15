@@ -7,6 +7,7 @@ matriceMarkov<-function(etat,temps){
   i<-1
   j<-1
   k<-1
+  x<-0
   nrow<-3
   ncol<-3
     while(j < nrow+1){
@@ -18,16 +19,22 @@ matriceMarkov<-function(etat,temps){
       j<- j+1
     }
   j<- 1
-  k<- 1 
-  while(j < nrow+1){
-    while(k < ncol+1){
-      if (random == matrice[j,k]){
-        return(matrice)
+  k<- 1
+  while(x<temps){
+    while(j < nrow+1){
+      while(k < ncol+1){
+        if (random == matrice[1,2]){
+          print(jouer)
+        }
+        if (random == matrice[1,3]){
+          print(dormir)
+        }
+        k<-k+1
       }
-      k<-k+1
+      k<- 1
+      j<-j+1
     }
-    k<- 1
-    j<-j+1
+    x<-x+1
   }
   
 }
