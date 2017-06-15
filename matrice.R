@@ -1,6 +1,6 @@
-puissanceMatrice<-function(colonne,ligne,donnée,puissance)
+puissanceMatrice<-function(colonne,ligne,donnee,puissance)
 {
-  matrice<-matrix(data = donnée,nrow = ligne,ncol = colonne)
+  matrice<-matrix(data = donnee,nrow = ligne,ncol = colonne)
   matriceResultat<-matrice
   i<-1
   while (i<puissance){
