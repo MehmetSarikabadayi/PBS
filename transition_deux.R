@@ -1,59 +1,30 @@
-matriceMarkov<-function(etat,temps){
-  matrice<-matrix(data = c(0,0.5,0.3,0.3,0,0.3,0.7,0.5,0.4),nrow = 3,ncol = 3)
-  etat<- 1
-  manger<- 1
-  jouer<- 2
-  dormir<- 3
-  i<-1
-  j<-1
-  k<-1
-  x<-0
-  nrow<-3
-  ncol<-3
-    while(j < nrow+1){
-      while(k < ncol+1){
-        matrice[j,k]<- matrice[j,k]*10
-        k<- k+1
-      }
-      k<- 1
-      j<- j+1
-    }
-  while(x<temps){
-    if(etat == 1){
-        random<- sample(1:10,1)
-        if (random == matrice[1,2]){
-          etat<-jouer
-          print(etat)
+trajectoireMatrice<-function(matrice, etat, n)
+{
+  i <- 1      #Definition d'une variable nul pour la boucle while pour le temps n
+  y <- 1      #Definition d'une variable nul pour la boucle while pour le parcours d'une ligne
+  trajectoire <- vector("numeric",length = n)    #Création d'un vecteur de longueur n de variables nuls
+  while(i <= n)
+  {
+    changement <- FALSE  #Definition d'un booleen pour le changement d'état
+    probabilite <- sample(1:10, 1)        #Nombre aléatoire entre 1 et 10
+    longueur <- length(matrice[etat,])    #Longueur de la ligne
+    variable <- 0
+    while(y <= longueur)
+    {
+      if(changement == FALSE)
+      {
+        intervalle <- seq(variable,matrice[etat,y]*10)
+        variable <- matrice[etat,y]*10
+        if(probabilite %in% intervalle)
+        {
+          trajectoire[i] <- y
+          etat <- y
+          changement <- TRUE
         }
-        if (random == matrice[1,3]){
-          etat<-dormir
-          print(etat)
-        }
-    }
-    if (etat == 2){
-      random<- sample(1:10,1)
-      if (random == matrice[2,1]){
-        etat<-manger
-        print(etat)
       }
-      if (random == matrice[2,3]){
-        etat<-dormir
-        print(etat)
-      }
+      y <- y + 1
     }
-    if (etat == 3){
-      random<- sample(1:10,1)
-      if (random == matrice[3,1]){
-        etat<-manger
-        print(etat)
-      }
-      if (random == matrice[3,2]){
-        etat<-dormir
-        print(etat)
-      }
-    }
-      x<-x+1
-    }
-  return(etat)
-  
+    i <- i + 1
+  }
+  return(trajectoire)
 }
