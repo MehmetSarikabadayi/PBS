@@ -7,7 +7,7 @@ trajectoireMatrice<-function(matrice, etat, n)
   {
     y <- 1      #Definition d'une variable pour la boucle while pour le parcours d'une ligne
     changement <- FALSE  #Definition d'un booleen pour le changement d'etat
-    probabilite <- sample(1:10, 1)        #Nombre alaatoire entre 1 et 10
+    probabilite <- sample(1:10, 1)        #Nombre aleatoire entre 1 et 10
     longueur <- length(matrice[etat,])    #Longueur de la ligne
     variable <- 0
     while(y <= longueur)
