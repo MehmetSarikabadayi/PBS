@@ -1,10 +1,9 @@
-puissanceMatrice<-function(colonne,ligne,donnee,puissance)
+puissanceMatrice<-function(matrice, puissance)
 {
-  matrice<-matrix(data = donnee,nrow = ligne,ncol = colonne)
   matriceResultat<-matrice
   i<-1
   while (i<puissance){
-    matriceResultat<-matriceResultat%*%matrice
+    matriceResultat<-matriceResultat%*%matrice         # %*% permet la multiplication de matrice
     i<- i+1
   }
   return (matriceResultat)
