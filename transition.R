@@ -1,13 +1,13 @@
 trajectoireMatrice<-function(matrice, etat, n)
 {
   i <- 2      #Definition d'une variable pour la boucle while pour le temps n
-  trajectoire <- rep(3,n)   #Cr�ation d'un vecteur de longueur n
+  trajectoire <- rep(3,n)   #Creation d'un vecteur de longueur n
   trajectoire[1] <- etat
   while(i <= n)
   {
     y <- 1      #Definition d'une variable pour la boucle while pour le parcours d'une ligne
-    changement <- FALSE  #Definition d'un booleen pour le changement d'�tat
-    probabilite <- sample(1:10, 1)        #Nombre al�atoire entre 1 et 10
+    changement <- FALSE  #Definition d'un booleen pour le changement d'etat
+    probabilite <- sample(1:10, 1)        #Nombre alaatoire entre 1 et 10
     longueur <- length(matrice[etat,])    #Longueur de la ligne
     variable <- 0
     while(y <= longueur)
