@@ -11,7 +11,7 @@ etatInitial<-function(trajectoire)
     temps <- temps + 1
     if(trajectoire[i] == etatDebut)
     {
-      lesTemps <- append(test2, temps)
+      lesTemps <- append(lesTemps, temps)
       occurrence <- occurrence + 1
       temps <- 0
     }
